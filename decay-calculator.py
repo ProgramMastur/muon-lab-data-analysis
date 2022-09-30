@@ -9,8 +9,10 @@ import os, sys
 
 # df.reset_index(drop=True, inplace=True)
 
+# iterate through all files in the data directory
 for filename in os.listdir(f"./Data/Autosave/"):
-
+    
+    # create a dataframe with the csv data
     df = pd.read_csv(f"./Data/Autosave/{filename}", header=4, encoding='utf8')
     df = df.dropna(axis=1,how="all")
 
@@ -18,8 +20,9 @@ for filename in os.listdir(f"./Data/Autosave/"):
     no_peak_dt = None
     go_to_second_peak = False
 
+    # iterate through the dataframe
     for i in range(0,len(df)):
-        pair = df.iloc[i].tolist() # [-2.50E-05, -1.61]
+        pair = df.iloc[i].tolist() # keep track of one coordinate pair at a time
         if not go_to_second_peak:
             if highest_V1 is None:
                 highest_V1 = pair[1]
@@ -37,3 +40,6 @@ for filename in os.listdir(f"./Data/Autosave/"):
     delta_t = second_peak_t - first_peak_t
     print(filename, delta_t)
 
+#TODO: check if the first instance of the highest data value is actually the top of each primary oscillation
+#TODO: introduce a low-pass filter to increase time efficiency
+#TODO: maybe use numpy convolution for the low-pass??
