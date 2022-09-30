@@ -19,6 +19,16 @@ for filename in os.listdir(f"./Data/Autosave/"):
     first_peak_t, second_peak_t, highest_V1, highest_V2 = None, None, None, None
     no_peak_dt = None
     go_to_second_peak = False
+    
+    # setup to ignore signals below a certain amplitude
+    booleans = []
+    for voltage in df.ampl:
+        pair = df.iloc[i].tolist()
+        if pair[2]<threshold:
+            booleans.append(False)
+        else:
+            booleans.append(True)
+
 
     # iterate through the dataframe
     for i in range(0,len(df)):
@@ -41,5 +51,5 @@ for filename in os.listdir(f"./Data/Autosave/"):
     print(filename, delta_t)
 
 #TODO: check if the first instance of the highest data value is actually the top of each primary oscillation
-#TODO: introduce a low-pass filter to increase time efficiency
+#TODO: introduce a low-pass filter to smooth out data
 #TODO: maybe use numpy convolution for the low-pass??
