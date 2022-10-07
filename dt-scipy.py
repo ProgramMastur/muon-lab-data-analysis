@@ -10,8 +10,9 @@ for filename in os.listdir(f"./Data/Autosave/"):
     
     voltages = df["Ampl"].tolist()
     
-    peak_indices = spicy.findpeaks(voltages)
-    
+    peak_indices = spicy.signal.find_peaks(voltages, -1.5)
+
+    print(filename)
     print(peak_indices)
 
 print("hooray")
