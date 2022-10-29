@@ -1,3 +1,11 @@
 # Muon Lifetime - Data analysis
 
-A python file is used, with the numpy and panda libraries, in order to process the data collected in the respective folder.
+## Background Data
+Includes the raw data for the background data measurements.
+run-1 is irrelevant
+run-2 was used
+
+## Data
+Includes the actual muon data.
+
+## Source code
