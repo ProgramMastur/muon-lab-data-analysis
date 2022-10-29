@@ -11,4 +11,4 @@ run-2 was used
 Includes the actual muon data.
 
 ## Source code
-dt-scipy.py is the final source code used to process the time intervals gathered in the raw data and output it in a form that is graphable. The actual graphing code is not included in the repository.
+dt-scipy.py is the final source code used to process the time intervals gathered in the raw data and output it in a form that is graphable. The actual graphing code is not included in the repository due to commiting errors.
